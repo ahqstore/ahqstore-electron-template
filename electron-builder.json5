@@ -1,0 +1,35 @@
+/**
+ * @see https://www.electron.build/configuration/configuration
+ */
+{
+  appId: "com.ahqstore.test_electron",
+  asar: true,
+  productName: "Electron Test App",
+  directories: {
+    output: "release/${version}",
+  },
+  files: ["dist", "dist-electron"],
+  mac: {
+    target: ["dmg"],
+    artifactName: "${productName}-Mac-${version}-Installer.${ext}",
+  },
+  win: {
+    target: [
+      {
+        target: "zip",
+        arch: ["x64"],
+      },
+    ],
+    artifactName: "${productName}-Windows-${version}-Setup.${ext}",
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    deleteAppDataOnUninstall: false,
+  },
+  linux: {
+    target: ["AppImage"],
+    artifactName: "${productName}-Linux-${version}.${ext}",
+  },
+}
