@@ -18,7 +18,7 @@ gh.rest.repos
     owner,
     repo,
     tag_name: `v${version}`,
-    draft: false,
+    draft: true,
   })
   .then(({ data: { id } }) => {
     console.log(`r_id=${id}`);

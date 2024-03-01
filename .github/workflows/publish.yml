@@ -84,3 +84,16 @@ jobs:
           RELEASE_ID: ${{ needs.create_release.outputs.r_id }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+
+      - name: Install Utils Deps
+        run: pnpm install
+        working-directory: utils
+
+      - name: Create Release
+        id: r_id
+        run: node release
+        working-directory: utils
+        env:
+          R_ID: ${{ needs.create_release.outputs.r_id }}
+          REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
