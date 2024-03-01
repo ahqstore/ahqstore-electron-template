@@ -43,6 +43,7 @@ jobs:
       matrix:
         os: [windows-latest, ubuntu-latest, macos-latest]
 
+    name: "Build app on ${{ matrix.os }}"
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -65,7 +66,7 @@ jobs:
 
   push_to_ahqstore:
     needs: [create_release, build]
-
+    name: Generate AHQ Store Binary
     runs-on: ubuntu-latest
 
     steps:
@@ -76,7 +77,7 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install AHQ Store CLI
-        run: npm i -g @ahqstore/cli
+        run: npm i -g pnpm @ahqstore/cli
 
       - name: Build
         run: ahqstore build
