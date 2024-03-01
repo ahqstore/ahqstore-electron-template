@@ -5,7 +5,7 @@ import { readFileSync } from "fs";
 
 const { version } = JSON.parse(
   // eslint-disable-next-line no-undef
-  readFileSync(join(import.meta.dirname, "..", "package.json")).toString()
+  readFileSync(join("..", "package.json")).toString()
 );
 
 const gh_token = process.env["GH_TOKEN"];
