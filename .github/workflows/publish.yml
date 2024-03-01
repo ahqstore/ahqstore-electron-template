@@ -92,7 +92,7 @@ jobs:
 
       - name: Create Release
         id: r_id
-        run: node release
+        run: node undraft
         working-directory: utils
         env:
           R_ID: ${{ needs.create_release.outputs.r_id }}
