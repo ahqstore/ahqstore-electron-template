@@ -80,7 +80,7 @@ jobs:
         run: npm i -g pnpm @ahqstore/cli
 
       - name: Build
-        uses: ahqstore/upload-app@v0.0.0
+        uses: ahqstore/upload-app@v0.0.1
         with:
           release: ${{ needs.create_release.outputs.r_id }}
           upload: true
