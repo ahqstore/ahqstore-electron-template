@@ -89,7 +89,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_G_H }}
 
       - name: Install Utils Deps
-        run: pnpm install
+        run: npm i -g pnpm; pnpm install
         working-directory: utils
 
       - name: Create Release
