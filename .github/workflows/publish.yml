@@ -80,7 +80,7 @@ jobs:
         run: rustup toolchain add stable
 
       - name: Build
-        uses: ahqstore/upload-app@v0.0.2
+        uses: ahqstore/upload-app@v0.1.0
         with:
           release: ${{ needs.create_release.outputs.r_id }}
           upload: true
