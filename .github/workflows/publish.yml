@@ -79,15 +79,6 @@ jobs:
       - name: Install Stable Toolchain
         run: rustup toolchain add stable
 
-      - name: Build
-        uses: ahqstore/upload-app@v0.1.0
-        with:
-          release: ${{ needs.create_release.outputs.r_id }}
-          upload: true
-        env:
-          RELEASE_ID: ${{ needs.create_release.outputs.r_id }}
-          GH_TOKEN: ${{ secrets.PAT_G_H }}
-
       - name: Install Utils Deps
         run: npm i -g pnpm; pnpm install
         working-directory: utils
@@ -100,3 +91,12 @@ jobs:
           R_ID: ${{ needs.create_release.outputs.r_id }}
           REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & Upload to AHQ Store
+        uses: ahqstore/upload-app@v0.1.0
+        with:
+          release: ${{ needs.create_release.outputs.r_id }}
+          upload: true
+        env:
+          RELEASE_ID: ${{ needs.create_release.outputs.r_id }}
+          GH_TOKEN: ${{ secrets.PAT_G_H }}
