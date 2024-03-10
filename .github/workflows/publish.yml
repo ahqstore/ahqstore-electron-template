@@ -76,11 +76,11 @@ jobs:
       - name: Setup NodeJS
         uses: actions/setup-node@v4
 
-      - name: Install AHQ Store CLI
-        run: npm i -g pnpm @ahqstore/cli
+      - name: Install Stable Toolchain
+        run: rustup toolchain add stable
 
       - name: Build
-        uses: ahqstore/upload-app@v0.0.1
+        uses: ahqstore/upload-app@v0.0.2
         with:
           release: ${{ needs.create_release.outputs.r_id }}
           upload: true
