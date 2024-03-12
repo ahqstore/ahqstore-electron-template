@@ -15,7 +15,7 @@
       "linuxPlatform": "LinuxAppImage",
       "win32Options": {
         "deps": [],
-        "zip_file_exec": null,
+        "zip_file_exec": "Electron Test App.exe",
         "exe_installer_args": []
       },
       "linuxOptions": {
